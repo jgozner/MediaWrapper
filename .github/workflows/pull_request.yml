@@ -1,0 +1,35 @@
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build_test:
+    runs-on: ubuntu-18.04
+    steps:
+
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup .NET Core 3.1
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.1.201'
+
+    - name: Install MediaInfo
+      run: |
+       sudo apt-get install libmms0
+       wget https://mediaarea.net/download/binary/libzen0/0.4.38/libzen0v5_0.4.38-1_amd64.xUbuntu_18.04.deb
+       sudo dpkg -i *.deb
+       sudo rm *.deb
+       wget https://mediaarea.net/download/binary/libmediainfo0/20.03/libmediainfo0v5_20.03-1_amd64.xUbuntu_18.04.deb
+       sudo dpkg -i *.deb
+       sudo rm *.deb
+       wget https://mediaarea.net/download/binary/mediainfo/20.03/mediainfo_20.03-1_amd64.xUbuntu_18.04.deb
+       sudo dpkg -i *.deb
+       sudo rm *.deb
+
+    - name: Install FFmpeg
+      run: sudo snap install ffmpeg
+
+    - name: Build and Test
+      run: dotnet test --configuration Release  /p:CollectCoverage=true /p:threshold=85 /p:thresholdType=line /p:thresholdStat=total /p:CoverletOutputFormat=lcov   
