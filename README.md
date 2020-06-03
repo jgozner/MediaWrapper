@@ -1,6 +1,6 @@
 # MediaWrapper
 
-[![Coverage Status](https://coveralls.io/repos/github/jgozner/MediaWrapper/badge.svg?branch=master)](https://coveralls.io/github/jgozner/MediaWrapper?branch=master) 
+[![Coverage Status](https://coveralls.io/repos/github/jgozner/MediaWrapper/badge.svg?branch=master)](https://coveralls.io/github/jgozner/MediaWrapper?branch=master)  ![Nuget](https://img.shields.io/nuget/v/MediaWrapper) 
 
 ## Install
 
