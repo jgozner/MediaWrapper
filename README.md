@@ -12,7 +12,7 @@ PM> Install-Package MediaWrapper
 
 ## Usage
 
-### Get Media (Audio/Video/Subtitle) Properties
+### Get Media (Audio/Video/Subtitle) Properties 
 ```csharp
 IMediaInfo info = await MediaInfo.Get(@"A:\clip.mkv");
 
